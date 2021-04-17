@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZManagerResources.Data;
 
 namespace ZManagerResources.Migrations
 {
     [DbContext(typeof(ZManagerResourcesContext))]
-    partial class ZManagerResourcesContextModelSnapshot : ModelSnapshot
+    [Migration("20210417200357_FixControleRecurso")]
+    partial class FixControleRecurso
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

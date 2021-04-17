@@ -36,6 +36,8 @@ namespace ZManagerResources
 
             services.AddScoped<EfCoreRecursoRepository>();
 
+            services.AddScoped<EfCoreControleRecursoRepository>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ZManagerResourcesAPI", Version = "v1" });

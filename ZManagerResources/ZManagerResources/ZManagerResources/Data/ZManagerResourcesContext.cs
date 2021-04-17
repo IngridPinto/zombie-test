@@ -15,5 +15,7 @@ namespace ZManagerResources.Data
         }
 
         public DbSet<ZManagerResources.Model.Recurso> Recurso { get; set; }
+
+        public DbSet<ZManagerResources.Model.ControleRecurso> ControleRecurso { get; set; }
     }
 }
