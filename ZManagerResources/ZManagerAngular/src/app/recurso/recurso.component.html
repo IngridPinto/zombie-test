@@ -1,0 +1,110 @@
+<!-- <mat-sidenav-container>
+
+    <mat-sidenav mode="side" opened>
+
+        <button [matMenuTriggerFor]="meuMenu">Menu</button>
+
+    </mat-sidenav>
+
+    Corpo da sidenav 
+
+<mat-sidenav-content>
+
+    <mat-menu #meuMenu="matMenu">
+
+        <button mat-menu-item>Item 1</button>
+
+        <button mat-menu-item>Item 2</button>
+
+    </mat-menu>
+    -->
+    <div>
+        <mat-toolbar color="#422956">
+            <div align="center" style="color:white;text-align: right;">
+                ZManagerAngular
+            </div>
+        </mat-toolbar>
+    </div>
+
+    <div class="container">
+        <mat-card>
+            <div>
+                <h2>
+                    Recurso
+                </h2>
+            </div>
+            <mat-card-content>
+                <form [formGroup]="recursoForm" (ngSubmit)="onFormSubmit()">
+                    <table>
+                        <tr>
+                            <td class="tbl1">
+                                <mat-form-field class="demo-full-width">
+                                    <input formControlName="Descricao" matTooltip="Informe a descrição do recurso"
+                                        matInput placeholder="Descrição do recurso">
+                                </mat-form-field>
+                                <mat-error>
+                                    <span
+                                        *ngIf="!recursoForm.get('Descricao').value && recursoForm.get('Descricao').touched"></span>
+                                </mat-error>
+                            </td>
+                            <td class="tbl1">
+                                <mat-form-field class="demo-full-width">
+                                    <input formControlName="Quantidade" matTooltip="Informe a quantidade" matInput
+                                        placeholder="Quantidade">
+                                </mat-form-field>
+                                <mat-error>
+                                    <span
+                                        *ngIf="!recursoForm.get('Quantidade').value && recursoForm.get('Quantidade').touched"></span>
+                                </mat-error>
+                            </td>
+                            <td class="tbl1">
+                                <mat-form-field class="demo-full-width">
+                                    <input formControlName="Observacao" matTooltip="Informe a observação" matInput
+                                        placeholder="Observação">
+                                </mat-form-field>
+                                <mat-error>
+                                    <span
+                                        *ngIf="!recursoForm.get('Observacao').value && recursoForm.get('Observacao').touched"></span>
+                                </mat-error>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <button type="submit" mat-raised-button color="accent" matTooltip="Clique no botão Enviar"
+                            [disabled]="!recursoForm.valid">Enviar</button>
+                        <button type="reset" mat-raised-button color="accent" matTooltip="Clique no botão Resetar"
+                            (click)="resetForm()">Resetar</button>
+
+                        <p *ngIf="dataSaved" style="color:rgb(55, 0, 128);font-size:20px;font-weight:bold"
+                            Class="success" align="left">
+                            {{message}}
+                        </p>
+                    </div>
+                    <br><br>
+                    <table class="table">
+                        <tr ngclass="btn-primary">
+                            <th class="tbl2">Descrição</th>
+                            <th class="tbl2">Quantidade</th>
+                            <th class="tbl2">Observação</th>
+                        </tr>
+                        <tr *ngFor="let recurso of allRecursos | async">
+                            <td class="tbl2">{{recurso.descricao}}</td>
+                            <td class="tbl2">{{recurso.quantidade}}</td>
+                            <td class="tbl2">{{recurso.observacao}}</td>
+                            <td class="tbl2">
+                                <button type="button" class="btn btn-info" matTooltip="Clique no botão para Editar"
+                                    (click)="loadRecursoToEdit(recurso.id)">Editar</button>
+                            </td>
+                            <td class="tbl2">
+                                <button type="button" class="btn btn-danger" matTooltip="Clique no botão para Deletar"
+                                    (click)="deleteRecurso(recurso.id)">Deletar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+    <!-- </mat-sidenav-content>
+</mat-sidenav-container> -->
