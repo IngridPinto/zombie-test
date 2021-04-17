@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ZManagerResources.Data;
+using ZManagerResources.Data.EFCore;
 
 namespace ZManagerResources
 {
@@ -27,6 +30,16 @@ namespace ZManagerResources
         {
 
             services.AddControllers();
+
+            services.AddDbContext<ZManagerResourcesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ZManagerResourcesContext")));
+
+            services.AddScoped<EfCoreRecursoRepository>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ZManagerResourcesAPI", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +60,17 @@ namespace ZManagerResources
             {
                 endpoints.MapControllers();
             });
+
+            //Ativa o Swagger
+            app.UseSwagger();
+
+            // Ativa o Swagger UI
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "ZManagerResourcesAPI V1");
+                opt.RoutePrefix = string.Empty;
+            });
+
         }
     }
 }

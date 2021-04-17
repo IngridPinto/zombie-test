@@ -2,5 +2,9 @@
 # Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
 ################################################################################
 
+*.suo
+*.user
+_ReSharper.*
 bin
 obj
+packages
