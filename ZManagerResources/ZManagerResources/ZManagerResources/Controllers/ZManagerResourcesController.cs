@@ -23,7 +23,7 @@ namespace ZManagerResources.Controllers
 
         // GET: api/[controller]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TEntity>>> Get()
+        public virtual async Task<ActionResult<IEnumerable<TEntity>>> Get()
         {
             return await repository.GetAll();
         }
@@ -52,7 +52,6 @@ namespace ZManagerResources.Controllers
             return NoContent();
         }
 
-        // POST: api/[controller]
         [HttpPost]
         public async Task<ActionResult<TEntity>> Post(TEntity obj)
         {

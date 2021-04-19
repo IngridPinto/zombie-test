@@ -16,14 +16,15 @@ namespace ZManagerResources.Data.EFCore
         {
             this.zManagerResourcesContext = context;
         }
-        public async Task<TEntity> Add(TEntity entity)
-        {
+        public virtual async Task<TEntity> Add(TEntity entity)
+        {            
             zManagerResourcesContext.Set<TEntity>().Add(entity);
+            
             await zManagerResourcesContext.SaveChangesAsync();
             return entity;
         }
 
-        public async Task<TEntity> Delete(int id)
+        public virtual async Task<TEntity> Delete(int id)
         {
             var entity = await zManagerResourcesContext.Set<TEntity>().FindAsync(id);
             if (entity == null)
@@ -47,11 +48,11 @@ namespace ZManagerResources.Data.EFCore
             return await zManagerResourcesContext.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public virtual async Task<TEntity> Update(TEntity entity)
         {
             zManagerResourcesContext.Entry(entity).State = EntityState.Modified;
             await zManagerResourcesContext.SaveChangesAsync();
             return entity;
-        }
+        }               
     }
 }

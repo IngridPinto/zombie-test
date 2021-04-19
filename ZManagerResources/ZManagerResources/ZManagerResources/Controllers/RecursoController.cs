@@ -13,8 +13,17 @@ namespace ZManagerResources.Controllers
 {
     public class RecursoController : ZManagerResourcesController<Recurso, EfCoreRecursoRepository>
     {
+        private readonly EfCoreRecursoRepository repository;
         public RecursoController(EfCoreRecursoRepository repository) : base(repository)
         {
+            this.repository = repository;
         }
+
+        //[HttpPost]
+        //public async Task<ActionResult<Recurso>> Post(Recurso obj)
+        //{
+        //    await repository.Add(obj);
+        //    return CreatedAtAction("Get", new { id = obj.Id }, obj);
+        //}
     }
 }

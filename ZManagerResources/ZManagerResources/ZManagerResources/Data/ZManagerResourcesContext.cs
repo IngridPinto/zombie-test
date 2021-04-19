@@ -9,13 +9,18 @@ namespace ZManagerResources.Data
 {
     public class ZManagerResourcesContext : DbContext
     {
-        public ZManagerResourcesContext (DbContextOptions<ZManagerResourcesContext> options)
+        public ZManagerResourcesContext(DbContextOptions<ZManagerResourcesContext> options)
             : base(options)
         {
+            
         }
 
-        public DbSet<ZManagerResources.Model.Recurso> Recurso { get; set; }
+        public DbSet<Recurso> Recurso { get; set; }
+        public DbSet<ControleRecurso> ControleRecurso { get; set; }
 
-        public DbSet<ZManagerResources.Model.ControleRecurso> ControleRecurso { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
     }
 }
