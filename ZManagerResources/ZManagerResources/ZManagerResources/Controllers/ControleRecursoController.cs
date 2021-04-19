@@ -19,21 +19,5 @@ namespace ZManagerResources.Controllers
             this.repository = repository;
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<Object>> Post(Object obj)
-        //{
-
-        //    ControleRecurso controleRecurso = new()
-        //    {
-        //        //Id = obj.id,
-        //        //Recurso = obj.recurso.Id,
-        //        //Usuario = obj.usuario,
-        //        //Quantidade = obj.quantidade
-        //    };
-
-        //    await repository.Add(controleRecurso);
-        //    return CreatedAtAction("Get", new { id = controleRecurso.Id }, obj);
-        //}
-
     }
 }

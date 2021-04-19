@@ -1,9 +1,8 @@
 <div class="container">
     <mat-card>
-        <div>
-            <div class="headClass"></div>
+        <div class="headClass">
             <h2>
-                Controle Recurso
+                Controle de Recursos
             </h2>
         </div>
         <mat-card-content>
@@ -67,12 +66,12 @@
                             <td role="gridcell" mat-cell>{{controleRecurso.quantidade}}</td>
                             <td role="gridcell" mat-cell>{{controleRecurso.usuario}}</td>
                             <td>
-                                <button type="button" color="accent" class="btn btn-info"
+                                <button type="button" mat-raised-button color="accent" class="btn btn-info"
                                     matTooltip="Clique no botão para Editar"
                                     (click)="loadControleRecursoToEdit(controleRecurso.id)">Editar</button>
                             </td>
                             <td>
-                                <button type="button" color="accent" class="btn btn-danger"
+                                <button type="button" mat-raised-button color="accent" class="btn btn-danger"
                                     matTooltip="Clique no botão para Deletar"
                                     (click)="deleteControleRecurso(controleRecurso.id)">Deletar</button>
                             </td>

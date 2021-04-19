@@ -1,15 +1,22 @@
 <div>
-  <mat-toolbar color="#422956">
-    <div align="center" style="color:white;text-align: right;">
+  <mat-toolbar  color="primary">
+    <div mat-card-title align="center" style="color:white;text-align: right;">
       ZManagerAngular
+    </div>
+  </mat-toolbar>
+  <mat-toolbar color="primary">
+    <div align="center" style="color:white;text-align: right;" class="headClass">
+      <mat-button-toggle-group appearance="legacy" name="fontStyle">
+        <mat-button-toggle routerLink="/">Home</mat-button-toggle>
+        <mat-button-toggle routerLink="/recurso">Recurso</mat-button-toggle>
+        <mat-button-toggle routerLink="/controlerecurso">Controle de Recursos</mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
   </mat-toolbar>
 </div>
 
-<div>
-  <app-recurso></app-recurso>
-</div>
 
-<div>
-  <app-controlerecurso></app-controlerecurso>
-</div>
+
+
+
+<router-outlet></router-outlet>

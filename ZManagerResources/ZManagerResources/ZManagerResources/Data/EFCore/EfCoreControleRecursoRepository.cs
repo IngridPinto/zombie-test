@@ -17,11 +17,30 @@ namespace ZManagerResources.Data.EFCore
 
         public override async Task<ControleRecurso> Add(ControleRecurso controleRecurso)
         {
-            Recurso recurso = await zManagerResourcesContext.Set<Recurso>().FindAsync(controleRecurso.Recurso.Id);
-            
-            controleRecurso.Recurso = recurso ?? throw new Exception("É necessário vincular um recurso existente.");
+            controleRecurso = await VerificaEIncrementa(controleRecurso);
 
             return await base.Add(controleRecurso);
+        }
+
+
+        public override async Task<ControleRecurso> Update(ControleRecurso controleRecurso)
+        {
+            controleRecurso = await VerificaEIncrementa(controleRecurso);
+
+            return await base.Update(controleRecurso);
+        }
+
+        private async Task<ControleRecurso> VerificaEIncrementa(ControleRecurso controleRecurso)
+        {
+            Recurso recurso = await zManagerResourcesContext.Set<Recurso>().FindAsync(controleRecurso.Recurso.Id);
+
+            controleRecurso.Recurso = recurso ?? throw new Exception("É necessário vincular um recurso existente.");
+
+            controleRecurso.Recurso.Quantidade = controleRecurso.Recurso.Quantidade + controleRecurso.Quantidade;
+
+            zManagerResourcesContext.Entry(controleRecurso).State = EntityState.Detached;
+
+            return controleRecurso;
         }
 
     }

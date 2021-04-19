@@ -15,7 +15,6 @@ namespace ZManagerResources.Data.EFCore
             this.zManagerResourcesContext = zManagerResources;
         }
 
-        //Deletando "on cascade" corrompendo integridade dos dados
         public override async Task<Recurso> Delete(int id)
         {
             bool existControle = await ExistControleRecurso(id);
@@ -33,9 +32,7 @@ namespace ZManagerResources.Data.EFCore
             if (existControle)
                 throw new Exception("Exclusão não permitida! O recurso tem pelo menos um controle associado!");
 
-            zManagerResourcesContext.Entry(recurso).State = EntityState.Modified;
-            await zManagerResourcesContext.SaveChangesAsync();
-            return recurso;
+            return await base.Update(recurso);
         }
 
         /// <summary>
@@ -52,7 +49,9 @@ namespace ZManagerResources.Data.EFCore
             {
                 controles = await zManagerResourcesContext.Set<ControleRecurso>()
                                     .Where(x => x.Recurso.Id == recurso.Id)
-                                    .ToListAsync();                
+                                    .ToListAsync();
+
+                zManagerResourcesContext.Entry(recurso).State = EntityState.Detached;
             }
 
             if (controles == null || controles.Count == 0)

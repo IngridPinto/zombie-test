@@ -21,13 +21,16 @@ import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatInputModule      } from '@angular/material/input'; 
 import { MatTooltipModule    } from '@angular/material/tooltip'; 
 import { MatToolbarModule    } from '@angular/material/toolbar'; 
+import {MatButtonToggleModule} from '@angular/material/button-toggle'
 
 
 import { MatRadioModule } from '@angular/material/radio';  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ControleRecursoComponent } from './controlerecurso/controlerecurso.component';  
 import { ControleRecursoService } from './controlerecurso.service';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component'
 
 
 
@@ -35,7 +38,8 @@ import { MatListModule } from '@angular/material/list'
   declarations: [
     AppComponent,
     RecursoComponent,
-    ControleRecursoComponent
+    ControleRecursoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,  
@@ -56,7 +60,9 @@ import { MatListModule } from '@angular/material/list'
     MatTooltipModule,  
     MatToolbarModule,  
     RouterModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule,
+    MatButtonToggleModule
   ],
   providers: [HttpClientModule, RecursoService, ControleRecursoService],
   bootstrap: [AppComponent]
