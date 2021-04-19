@@ -1,2 +1,29 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; 
 /* @import '@angular/material/prebuilt-themes/indigo-pink.css';  */
+/* th,td{
+    text-align: center;
+} */
+
+
+/* th{
+    background-color:#422956;
+    color: white;
+} */
+/* .tbl1
+{
+    width: 400px;
+}
+.tbl2
+{
+    width: 400pxx;
+} */
+
+.mat-toolbar
+{
+    background-color:#422956;
+}
+
+.headClass
+{
+    border-bottom: 1px solid rgba(59,65,81,.3);
+}

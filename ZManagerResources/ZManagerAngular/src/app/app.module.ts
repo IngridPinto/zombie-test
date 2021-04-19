@@ -22,15 +22,20 @@ import { MatInputModule      } from '@angular/material/input';
 import { MatTooltipModule    } from '@angular/material/tooltip'; 
 import { MatToolbarModule    } from '@angular/material/toolbar'; 
 
+
 import { MatRadioModule } from '@angular/material/radio';  
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ControleRecursoComponent } from './controlerecurso/controlerecurso.component';  
+import { ControleRecursoService } from './controlerecurso.service';
+import { MatListModule } from '@angular/material/list'
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecursoComponent
+    RecursoComponent,
+    ControleRecursoComponent
   ],
   imports: [
     BrowserModule,  
@@ -50,9 +55,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,  
     MatTooltipModule,  
     MatToolbarModule,  
-    RouterModule
+    RouterModule,
+    MatListModule
   ],
-  providers: [HttpClientModule, RecursoService],
+  providers: [HttpClientModule, RecursoService, ControleRecursoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

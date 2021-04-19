@@ -1,4 +1,4 @@
-th,td{
+/* th,td{
     text-align: center;
 }
 th{
@@ -18,3 +18,8 @@ th{
 {
     background-color:#422956;
 }
+
+.headClass
+{
+    border-bottom: 1px solid rgba(59,65,81,.3);
+} */
