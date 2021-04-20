@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { RecursoService } from '../../recurso.service';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ControleRecurso } from '../../../app/controlerecurso';
 import { ControleRecursoService } from '../../controlerecurso.service';
-import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,12 +11,11 @@ import { Observable } from 'rxjs';
 
 export class RelatorioComponent implements OnInit {
 
-  allControleRecursosSummary: Observable<ControleRecurso[]>;
+  allControleRecursosSummary: Observable<ControleRecurso[]>; 
 
   constructor(private controleRecursoService: ControleRecursoService) { }
 
   ngOnInit(): void {
     this.allControleRecursosSummary = this.controleRecursoService.getSummary();
   }
-
 }

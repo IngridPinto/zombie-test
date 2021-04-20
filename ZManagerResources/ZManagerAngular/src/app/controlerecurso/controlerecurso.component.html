@@ -5,7 +5,7 @@
                 Controle de Recursos
             </h2>
         </div>
-        <div style="border-style:solid; border-color: rgba(141, 141, 141, 0.849); padding: 20px;">
+        <div class="borderComponente">
             <mat-card-content>
                 <form [formGroup]="controleRecursoForm" (ngSubmit)="onFormSubmit()">
                     <table>
@@ -17,7 +17,9 @@
                                 </mat-form-field>
                                 <mat-error>
                                     <span
-                                        *ngIf="!controleRecursoForm.get('Usuario').value && controleRecursoForm.get('Usuario').touched"></span>
+                                        *ngIf="!controleRecursoForm.get('Usuario').value && controleRecursoForm.get('Usuario').touched && controleRecursoForm.get('Usuario').errors?.required">
+                                        Campo usuário é obrigatório!
+                                    </span>
                                 </mat-error>
                             </td>
                             <td class="tbl1">
@@ -27,7 +29,9 @@
                                 </mat-form-field>
                                 <mat-error>
                                     <span
-                                        *ngIf="!controleRecursoForm.get('Quantidade').value && controleRecursoForm.get('Quantidade').touched"></span>
+                                        *ngIf="!controleRecursoForm.get('Quantidade').value && controleRecursoForm.get('Quantidade').touched && controleRecursoForm.get('Quantidade').errors?.required">
+                                        Campo quantidade é obrigatório!
+                                    </span>
                                 </mat-error>
                             </td>
                         </tr>
@@ -39,6 +43,12 @@
                                 {{recurso.descricao}}
                             </mat-list-option>
                         </mat-selection-list>
+                        <mat-error>
+                            <span
+                                *ngIf="!controleRecursoForm.get('Recurso').value && controleRecursoForm.get('Recurso').touched && controleRecursoForm.get('Recurso').errors?.required">
+                                Campo recurso é obrigatório!
+                            </span>
+                        </mat-error>
                     </div>
 
                     <div>
@@ -53,7 +63,7 @@
                         </p>
                     </div>
                     <br><br>
-                    <table mat-table class="mat-table cdk-table mat-elevation-z8">
+                    <table mat-table class="mat-table cdk-table mat-elevation-z8 tableRelatorio">
                         <thead role="rowgroup">
                             <tr role="row" mat-header-row>
                                 <th role="rowheader">Descrição do Recurso</th>

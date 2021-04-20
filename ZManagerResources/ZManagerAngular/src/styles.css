@@ -1,22 +1,4 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; 
-/* @import '@angular/material/prebuilt-themes/indigo-pink.css';  */
-/* th,td{
-    text-align: center;
-} */
-
-
-/* th{
-    background-color:#422956;
-    color: white;
-} */
-/* .tbl1
-{
-    width: 400px;
-}
-.tbl2
-{
-    width: 400pxx;
-} */
 
 .mat-toolbar
 {
@@ -26,4 +8,15 @@
 .headClass
 {
     border-bottom: 1px solid rgba(59,65,81,.3);
+}
+
+.tableRelatorio{
+    width: 100%;
+    text-align: center;
+}
+
+.borderComponente{
+    border-style:solid;
+    border-color: rgba(141, 141, 141, 0.849);
+    padding: 20px;
 }

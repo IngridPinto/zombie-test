@@ -5,7 +5,7 @@
                 Recurso
             </h2>
         </div>
-        <div style="border-style:solid; border-color: rgba(141, 141, 141, 0.849); padding: 20px;">
+        <div class="borderComponente">
             <mat-card-content>
                 <form [formGroup]="recursoForm" (ngSubmit)="onFormSubmit()">
                     <table>
@@ -17,17 +17,21 @@
                                 </mat-form-field>
                                 <mat-error>
                                     <span
-                                        *ngIf="!recursoForm.get('Descricao').value && recursoForm.get('Descricao').touched"></span>
+                                        *ngIf="!recursoForm.get('Descricao').value && recursoForm.get('Descricao').touched && recursoForm.get('Descricao').errors?.required">
+                                        Campo descrição é obrigatório!
+                                    </span>                                   
                                 </mat-error>
                             </td>
                             <td class="tbl1">
                                 <mat-form-field class="demo-full-width">
-                                    <input formControlName="Quantidade" matTooltip="Informe a quantidade" matInput
-                                        placeholder="Quantidade">
+                                    <input type="number" formControlName="Quantidade" matTooltip="Informe a quantidade"
+                                        matInput placeholder="Quantidade">
                                 </mat-form-field>
                                 <mat-error>
                                     <span
-                                        *ngIf="!recursoForm.get('Quantidade').value && recursoForm.get('Quantidade').touched"></span>
+                                        *ngIf="!recursoForm.get('Quantidade').value && recursoForm.get('Quantidade').touched && recursoForm.get('Quantidade').errors?.required">
+                                        Campo quantidade é obrigatório!
+                                    </span>
                                 </mat-error>
                             </td>
                             <td class="tbl1">
@@ -55,7 +59,7 @@
                     </div>
 
                     <br><br>
-                    <table mat-table class="mat-table cdk-table mat-elevation-z8">
+                    <table mat-table class="mat-table cdk-table mat-elevation-z8 tableRelatorio">
                         <thead role="rowgroup">
                             <tr role="row" mat-header-row>
                                 <th role="rowheader">Descrição</th>
