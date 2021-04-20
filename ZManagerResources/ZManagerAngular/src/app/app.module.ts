@@ -30,7 +30,9 @@ import { ControleRecursoComponent } from './controlerecurso/controlerecurso.comp
 import { ControleRecursoService } from './controlerecurso.service';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './pages/home/home.component'
+import { HomeComponent } from './pages/home/home.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { RelatorioComponent } from './pages/relatorio/relatorio.component';
 
 
 
@@ -39,7 +41,8 @@ import { HomeComponent } from './pages/home/home.component'
     AppComponent,
     RecursoComponent,
     ControleRecursoComponent,
-    HomeComponent
+    HomeComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,  
@@ -62,7 +65,8 @@ import { HomeComponent } from './pages/home/home.component'
     RouterModule,
     MatListModule,
     AppRoutingModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTabsModule
   ],
   providers: [HttpClientModule, RecursoService, ControleRecursoService],
   bootstrap: [AppComponent]

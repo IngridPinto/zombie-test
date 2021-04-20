@@ -38,9 +38,30 @@ namespace ZManagerResources.Data.EFCore
 
             controleRecurso.Recurso.Quantidade = controleRecurso.Recurso.Quantidade + controleRecurso.Quantidade;
 
+            zManagerResourcesContext.Entry(controleRecurso.Recurso).State = EntityState.Modified;
+
+            await zManagerResourcesContext.SaveChangesAsync();
+
             zManagerResourcesContext.Entry(controleRecurso).State = EntityState.Detached;
 
             return controleRecurso;
+        }
+
+        public async Task<List<ControleRecurso>> GetRelatorio()
+        {
+            var temporaria = zManagerResourcesContext.Set<ControleRecurso>()
+              .GroupBy(x => x.Recurso.Id)
+              .Select(g => new
+              {
+                  recursoId = g.Key,
+                  controleId = g.Max(row => row.Id)
+              });
+
+            var resultado = await zManagerResourcesContext.Set<ControleRecurso>()
+                            .Join(temporaria, controle => controle.Id, temp => temp.controleId, (controle, temp) => new { controle, temp })
+                            .Select(x => x.controle).ToListAsync();
+
+            return resultado;
         }
 
     }

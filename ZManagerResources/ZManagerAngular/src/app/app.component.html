@@ -1,22 +1,31 @@
 <div>
-  <mat-toolbar  color="primary">
-    <div mat-card-title align="center" style="color:white;text-align: right;">
-      ZManagerAngular
-    </div>
-  </mat-toolbar>
   <mat-toolbar color="primary">
-    <div align="center" style="color:white;text-align: right;" class="headClass">
-      <mat-button-toggle-group appearance="legacy" name="fontStyle">
-        <mat-button-toggle routerLink="/">Home</mat-button-toggle>
-        <mat-button-toggle routerLink="/recurso">Recurso</mat-button-toggle>
-        <mat-button-toggle routerLink="/controlerecurso">Controle de Recursos</mat-button-toggle>
-      </mat-button-toggle-group>
+    <div mat-card-title align="center" style="color:white;text-align: right;">
+      ZManagerAngular v1.0
     </div>
   </mat-toolbar>
+  <mat-tab-group>
+    <mat-tab label="Home">
+      <app-home></app-home>
+    </mat-tab>
+    <mat-tab label="Recurso">
+      <app-recurso></app-recurso>
+    </mat-tab>
+    <mat-tab label="Controle de Recurso">
+      <app-controlerecurso></app-controlerecurso>
+    </mat-tab>
+    <mat-tab label="Relatório">
+      <app-relatorio></app-relatorio>
+    </mat-tab>
+  </mat-tab-group>
 </div>
-
-
-
-
-
-<router-outlet></router-outlet>
+<div>
+  <!-- <router-outlet></router-outlet> -->
+  <footer>
+    <p>Autor: Ingrid Carneiro - </p>
+    <p>Contatos: <a href="ingpcar@gmail.com">Gmail</a> -
+      <a href="https://github.com/IngridPinto/zombie-test">Linkedin</a>
+    </p>
+    <p>Projeto dispoível em: <a href="https://github.com/IngridPinto/zombie-test">GitHub</a></p>
+  </footer>
+</div>

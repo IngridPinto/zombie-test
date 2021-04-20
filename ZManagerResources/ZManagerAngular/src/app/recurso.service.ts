@@ -32,6 +32,6 @@ export class RecursoService {
   deleteRecursoById(id: string): Observable<number> {  
     const apiurl = `${this.url}/${id}`;
     return this.http.delete<number>(apiurl, httpOptions);  
-  }  
+  }
 
 }

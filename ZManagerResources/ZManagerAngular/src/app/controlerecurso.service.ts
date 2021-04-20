@@ -28,7 +28,6 @@ export class ControleRecursoService {
   createControleRecurso(controleRecurso: ControleRecurso): Observable<ControleRecurso> { 
     return this.http.post<ControleRecurso>(this.url, controleRecurso, httpOptions)
   }  
-
   updateControleRecurso(id: string, controlerecurso: ControleRecurso): Observable<ControleRecurso> {
     const apiurl = `${this.url}/${id}`;
     return this.http.put<ControleRecurso>(apiurl, controlerecurso, httpOptions);
@@ -37,4 +36,8 @@ export class ControleRecursoService {
     const apiurl = `${this.url}/${id}`;
     return this.http.delete<number>(apiurl, httpOptions);
   }
+  getSummary(): Observable<ControleRecurso[]> {  
+    const apiurl = `${this.url}/relatorio`;
+    return this.http.get<ControleRecurso[]>(apiurl);  
+  } 
 }

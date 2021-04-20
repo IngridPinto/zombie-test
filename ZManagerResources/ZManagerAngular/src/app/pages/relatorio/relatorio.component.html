@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-card>
+        <div class="headClass">
+            <h2>
+                Relatório de Disponibilidade de Recursos
+            </h2>
+        </div>
+        <div style="border-style:solid; border-color: rgba(141, 141, 141, 0.849); padding: 20px;">
+            <mat-card-content>
+                <table mat-table class="mat-table cdk-table mat-elevation-z8">
+                    <thead role="rowgroup">
+                        <tr role="row" mat-header-row>
+                            <th role="rowheader">Descrição do Recurso</th>
+                            <th role="rowheader">Quantidade de Recursos</th>
+                            <th role="rowheader">Usuario Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                        <tr *ngFor="let controleRecurso of allControleRecursosSummary | async" role="row" mat-header-row
+                            cdk-header-row>
+                            <td role="gridcell" mat-cell>{{controleRecurso.recurso.descricao}}</td>
+                            <td role="gridcell" mat-cell>{{controleRecurso.recurso.quantidade}}</td>
+                            <td role="gridcell" mat-cell>{{controleRecurso.usuario}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card-content>
+        </div>
+    </mat-card>
+</div>

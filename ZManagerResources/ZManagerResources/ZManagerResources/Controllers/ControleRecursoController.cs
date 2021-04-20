@@ -19,5 +19,11 @@ namespace ZManagerResources.Controllers
             this.repository = repository;
         }
 
+        [HttpGet("relatorio")]
+        public async Task<List<ControleRecurso>> GetSummary()
+        {
+            return await repository.GetRelatorio();
+        }
+
     }
 }

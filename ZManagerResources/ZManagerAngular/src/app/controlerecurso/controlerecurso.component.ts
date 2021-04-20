@@ -3,8 +3,8 @@ import { Recurso } from '../recurso';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { RecursoService } from '../recurso.service';
-import { ControleRecurso } from '../controlerecurso'
-import { ControleRecursoService } from '../controlerecurso.service'
+import { ControleRecurso } from '../controlerecurso';
+import { ControleRecursoService } from '../controlerecurso.service';
 
 @Component({
   selector: 'app-controlerecurso',
@@ -22,7 +22,8 @@ export class ControleRecursoComponent implements OnInit {
   allControleRecursos: Observable<ControleRecurso[]>;
   allRecursos: Observable<Recurso[]>;
 
-  selectedRecurso: any;
+  allControleRecursosSummary: Observable<ControleRecurso[]>;
+
 
   constructor(private formbulider: FormBuilder, private controleRecursoService: ControleRecursoService, private recursoService: RecursoService) { }
 
@@ -44,6 +45,10 @@ export class ControleRecursoComponent implements OnInit {
 
   loadAllRecursos() {
     this.allRecursos = this.recursoService.getAllRecursos();
+  }
+
+  loadAllControleRecursosSummary() {
+    this.allControleRecursosSummary = this.controleRecursoService.getSummary();
   }
 
   onFormSubmit() {
