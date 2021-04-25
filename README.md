@@ -1,3 +1,5 @@
+API com CI/CD via Azure disponível em: https://zmanagerresources.azurewebsites.net/ (Swagger)
+
 # ZOMBIE RESOURCES
 
 ![Zombies](https://1.bp.blogspot.com/-nZGSpAiM8JM/UoajD2jeZuI/AAAAAAAAAR4/YCOT3XpuKDU/s1600/apocalipse-zumbi.jpg)
