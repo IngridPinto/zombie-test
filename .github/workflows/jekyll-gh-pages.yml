@@ -40,7 +40,7 @@ jobs:
         run: npm install
 
       - name: Build Angular project
-        working-directory: ./frontend
+        working-directory: ./ZManagerResources/ZManagerAngular
         run: npm run build --prod
 
   # Deployment job
